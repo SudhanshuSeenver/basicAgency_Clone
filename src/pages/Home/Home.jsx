@@ -19,18 +19,18 @@ function Home() {
   const awards = [
     {
       name: "AdAge",
-      Logo: AdAgeLogo ,
+      Logo: AdAgeLogo,
       text: "Design and Branding Agency of the Year",
     },
     {
       name: "Webby_awards",
-      Logo: WebbyLogo ,
+      Logo: WebbyLogo,
       text: "Agency of the Year",
     },
     {
       name: "Campaign",
-      Logo: CampaignLogo ,
-      text: "Design and Digital Innovation Agency of the Year Finalist Agency of the Year",
+      Logo: CampaignLogo,
+      text: "Digital Innovation Agency of the Year Finalist",
     },
   ];
 
@@ -99,7 +99,7 @@ function Home() {
   function handleMouseMove(e) {
     // console.log(e.clientY);
     // console.log(e.clientX);
-    setCursorPos([e.clientX + "px", e.clientY + "px"]);
+    setCursorPos([e.clientX + "px", e.clientY + window.scrollY + "px"]);
   }
   //   console.log(navH.current.offsetHeight);
   return (
@@ -185,9 +185,13 @@ function Home() {
         </div>
       </div>
       <section className={styles.award_section}>
-        <ul className={styles.award_list}>{
-          awards.map(award => <AwardCard data={award} key={award.name}/>)
-        }</ul>
+        <ul className={styles.award_list}>
+          {awards.map((award) => (
+            <li>
+              <AwardCard data={award} key={award.name} />
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );
