@@ -1,0 +1,7 @@
+<svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="threeDots">
+<circle id="Dot1" cx="49" cy="75" r="18" fill="black"/>
+<circle id="Dot2" cx="100" cy="75" r="18" fill="black"/>
+<circle id="Dot3" cx="151" cy="75" r="18" fill="black"/>
+</g>
+</svg>

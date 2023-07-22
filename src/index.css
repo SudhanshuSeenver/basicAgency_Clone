@@ -1,13 +1,81 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap");
+@font-face {
+  font-family: SctoGroteskA-Bold;
+  src: url("./assets/fonts/SctoGroteskA-Bold.d6497298.woff2");
+}
+@font-face {
+  font-family: SctoGroteskA-Medium;
+  src: url("./assets/fonts/SctoGroteskA-Medium.2ede3563.woff2");
+}
+@font-face {
+  font-family: SctoGroteskA-Regular;
+  src: url("./assets/fonts/SctoGroteskA-Regular.1e986128.woff2");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* Global variables to be defined here */
+  /* --color-white: #ffffff; */
+  --color-background-light: #f4f4f4;
+  --color-background-dark: #252422;
+  --color-background-pink: #f9cdcd;
+  --color-primary: #34c94b;
+  --color-black: #121212;
+  --color-white: #ffffff;
+  --font-bold: "SctoGroteskA-Bold";
+  --font-medium: "SctoGroteskA-Medium";
+  --font-regular: "SctoGroteskA-Regular";
+
+  --grid-height: 100vh;
+}
+
+html {
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-regular), sans-serif;
+  min-height: 100vh;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
 }

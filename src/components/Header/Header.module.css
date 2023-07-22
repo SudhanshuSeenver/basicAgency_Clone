@@ -1,0 +1,105 @@
+.header_ct {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 8rem;
+}
+
+.logo_bd svg {
+  width: 16rem;
+  fill: var(--color-white);
+  height: 2.2rem;
+}
+
+.nav_links_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  /* font-style: var(--font-medium); */
+}
+
+.nv_link {
+  padding: 0 3rem;
+  transition: all 0.5s ease-in;
+}
+.nv_link,
+a {
+  transition: all 0.5s ease-in;
+}
+.nv_link:hover > a {
+  /* text-decoration: underline;
+  transform: scale(1.5); */
+}
+
+.nv_link > a::after {
+  content: "";
+  position: absolute;
+  height: 0.1rem;
+  display: block;
+  width: 0%;
+  /* bottom: 0; */
+  right: 0;
+  background-color: var(--color-white);
+  transition: width 0.25s ease;
+  -webkit-transition: width 0.25s ease;
+}
+.nv_link > a:hover::after {
+  /* animation: underline_nav_hover 0.25s ease-in forwards; */
+  width: 100%;
+  left: 0;
+}
+
+@keyframes underline_nav_hover {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.nv_link > a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  /* color: var(); */
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.initiative_btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.initiative_btn_svg {
+  transform: scale(1.2);
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.initiative_btn_svg,
+.initiative_btn_svg * {
+  transition: all 0.1s linear;
+  fill: var(--color-white);
+}
+
+.initiative_btn_svg:hover circle:first-child {
+  transform: translateX(-15px);
+}
+.initiative_btn_svg:hover circle:last-child {
+  transform: translateX(15px);
+}
+/* svg:hover #threeDots > #Dot3 {
+  transform: translateX(10px);
+} */
+
+.menuBtn_txt {
+  color: var(--color-white);
+  text-transform: uppercase;
+}

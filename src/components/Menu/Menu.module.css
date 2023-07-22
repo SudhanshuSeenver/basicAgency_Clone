@@ -1,0 +1,39 @@
+.menu_ct {
+  width: 100%;
+  height: var(--grid-height);
+  background-color: var(--color-background-dark);
+  color: var(--color-background-pink);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn_men.btn_men {
+  color: var(--color-background-pink);
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  /* color: #222; */
+  height: 4rem;
+  width: 4rem;
+  /* font-size: 1rem; */
+  border: 1px solid var(--color-background-pink);
+  border-radius: 50%;
+}
+
+.menu_ct.close_menu_ct {
+  /* opacity: 0;
+  pointer-events: none; */
+  transition: opacity 0.25s linear;
+}
+.menu_ct.open_menu_ct {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.5s linear;
+}
+
+.btn_men > svg {
+  transform: scale(1.8);
+}
