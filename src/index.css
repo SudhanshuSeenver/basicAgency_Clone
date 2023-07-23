@@ -16,7 +16,9 @@
   /* Global variables to be defined here */
   /* --color-white: #ffffff; */
   --color-background-light: #f4f4f4;
+  --color-background: #f4f4f4ff;
   --color-background-dark: #252422;
+  --color-font-dark: #252422;
   --color-background-pink: #f9cdcd;
   --color-primary: #34c94b;
   --color-black: #121212;
@@ -36,6 +38,7 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
 }
 * {
   margin: 0;

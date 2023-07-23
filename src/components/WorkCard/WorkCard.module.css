@@ -1,0 +1,7 @@
+.card {
+  color: var(--color-font-dark);
+}
+.card_link {
+  text-decoration: none;
+  color: inherit;
+}

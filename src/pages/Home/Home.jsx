@@ -4,11 +4,17 @@ import Header from "../../components/Header/Header";
 import styles from "./Home.module.css";
 import videoReelHero from "../../assets/videos/reel-loop.mp4";
 import videoHero from "../../assets/videos/reel_220409_001451.mp4";
+import googleStoreCaseStudy from "../../assets/videos/Google-Store-Web-Design-Case-Study-Thumbnail-02.mp4";
+import pantagoniaCaseStudy from "../../assets/images/Patagonia-Case-Study-Thumbnail.jpeg";
+import wilsonCaseStudy from "../../assets/images/WIlson-Case-Study-Thumbnail.jpeg";
 
 import { ReactComponent as AdAgeLogo } from "../../assets/logos/adAge.svg";
 import { ReactComponent as WebbyLogo } from "../../assets/logos/webbyLogo.svg";
 import { ReactComponent as CampaignLogo } from "../../assets/logos/campaignLogo.svg";
+import { ReactComponent as BDLogo } from "../../assets/logos/B_DLogo.svg";
 import AwardCard from "../../components/AwardCard/AwardCard";
+import Button from "../../components/Button/Button";
+import WorkCard from "../../components/WorkCard/WorkCard";
 
 function Home() {
   const heroRef = useRef(null);
@@ -31,6 +37,23 @@ function Home() {
       name: "Campaign",
       Logo: CampaignLogo,
       text: "Digital Innovation Agency of the Year Finalist",
+    },
+  ];
+  const works = [
+    {
+      imgSrc: pantagoniaCaseStudy,
+      name: "patagonia",
+      text: "An eCommerce experience driven by Patagonia’s brand mission",
+    },
+    {
+      imgSrc: wilsonCaseStudy,
+      name: "wilson",
+      text: "A century-old sports brand finding its place in culture",
+    },
+    {
+      vidSrc: googleStoreCaseStudy,
+      name: "google store",
+      text: "An eCommerce experience helping Google bring its hardware to people across the globe",
     },
   ];
 
@@ -193,6 +216,37 @@ function Home() {
           ))}
         </ul>
       </section>
+
+      <section className={styles.about_section}>
+        <div className={styles.about}>
+          <div className={styles.about_desc}>
+            <h3 className={styles.about_desc_txt}>
+              BASIC/DEPT&reg; is a global branding and digital design agency
+              building products, services, and eCommerce experiences that turn
+              cultural values into company value.
+            </h3>
+            <Button custCls={styles.about_btnSee_work} primary>
+              <a href="#">see the work</a>
+            </Button>
+          </div>
+          <div className={styles.about_BD}>
+            <figure className={styles.about_BD_logo}>
+              <BDLogo />
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section className={styles.work_section}>
+        <ul className={styles.work_list}>
+          {works.map((work) => (
+            <li key={work.name}>
+              <WorkCard work={work} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={styles.client_section}></section>
     </div>
   );
 }
