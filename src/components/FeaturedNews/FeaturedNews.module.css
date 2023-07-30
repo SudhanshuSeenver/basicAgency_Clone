@@ -6,12 +6,14 @@
 }
 .feat_news > a {
   display: flex;
+  flex-direction: column;
+  /* align-items: center; */
   text-decoration: none;
   color: currentColor;
   gap: 2rem;
 }
 .feat_news_img {
-  width: 32.5%;
+  width: 100%;
 }
 
 .feat_news_img > figure {
@@ -32,7 +34,7 @@
 }
 
 .feat_newsDesc {
-  width: 67.5%;
+  width: 100%;
   /* flex: auto; */
   position: relative;
   text-transform: uppercase;
@@ -48,22 +50,19 @@
   font-family: var(--font-medium);
   position: relative;
   top: -0.2em;
-  width: 70%;
+  width: 100%;
   font-weight: 500;
   letter-spacing: -2px;
   line-height: 1.2;
-  font-size: 4rem;
-}
-
-.feat_newsDesc > p,
-.feat_newsDesc > p > span {
-  font-size: 1.4rem;
-  font-family: var(--font-medium);
+  font-size: 2.4rem;
 }
 
 .feat_newsDesc > p {
+  font-size: 1.1rem;
+  font-family: var(--font-medium);
   margin: auto 0 0;
   position: relative;
+  margin: 5rem 0 0;
   top: 0.2em;
 }
 .feat_newsDesc > p > span {
@@ -73,15 +72,15 @@
 .feat_newsArrow {
   position: absolute;
   right: 0;
-  top: 0;
-  font-size: 4rem;
+  bottom: 0;
+  font-size: 3rem;
 
   overflow: hidden;
   /* transform: scale(1.2); */
 }
 .feat_newsArrow > svg {
   position: relative;
-  top: -0.2em;
+  bottom: -0.2em;
 }
 
 .feat_news:hover figure > img {
@@ -112,4 +111,48 @@
   100% {
     transform: translateX(0);
   }
+}
+
+@media screen and (min-width: 720px) {
+  .feat_news_img {
+    width: 32.5%;
+  }
+  .feat_news > a {
+    flex-direction: row;
+  }
+  .feat_newsDesc {
+    width: 67.5%;
+    /* flex: auto; */
+  }
+  .feat_newsArrow {
+    top: 0;
+    font-size: 4rem;
+  }
+  .feat_newsArrow > svg {
+    top: -0.2em;
+  }
+  .feat_newsDesc > p {
+    margin: 0;
+  }
+  .feat_newsDesc > h5 {
+    width: 70%;
+    letter-spacing: -1.25px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .feat_newsDesc > p {
+    font-size: 1.4rem;
+  }
+  .feat_newsDesc > h5 {
+    font-size: 4.2rem;
+  }
+  /* .feat_newsDesc > h5 {
+    font-family: var(--font-medium);
+    position: relative;
+    top: -0.2em;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2.4rem;
+  } */
 }

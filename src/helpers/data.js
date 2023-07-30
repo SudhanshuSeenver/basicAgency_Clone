@@ -126,4 +126,23 @@ const news_data = [
   },
 ];
 
+// const socials = ["instagram", "twitter", "linkedIn", "Facebook"];
+// const initiatives = [
+//   "crafted",
+//   "applied",
+//   "brandbeats",
+//   "moves",
+//   "B&reg;/Good",
+// ];
+// const offices = [
+//   "San Diego – CA",
+//   "New York – NY",
+//   "Bay Area – CA",
+//   "St. Louis – MO",
+//   "Amsterdam – NL",
+//   "London – EN",
+//   "Berlin – GE",
+//   "Argentina – AR",
+// ];
+
 export { awards_data, works_data, clients_data, news_data };

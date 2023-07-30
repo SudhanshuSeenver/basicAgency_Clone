@@ -20,6 +20,7 @@ import {
   clients_data,
   news_data,
 } from "../../helpers/data";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const heroRef = useRef(null);
@@ -290,6 +291,7 @@ function Home() {
           </ul>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
