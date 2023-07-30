@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5rem 8rem;
+  padding: calc(1.5rem + 2.5vw) 5.4vw;
 }
 
 .logo_bd svg {
-  width: 16rem;
+  /* width: 16rem; */
   fill: var(--color-white);
-  height: 2.2rem;
+  height: 1.8rem;
 }
 
 .nav_links_list {
@@ -100,5 +100,17 @@
 
 .menuBtn_txt {
   color: var(--color-white);
+  line-height: 1.4;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 1280px) {
+  .header_ct {
+    padding: 5rem 8rem;
+  }
+  .logo_bd svg {
+    /* width: 16rem; */
+    fill: var(--color-white);
+    height: 2.2rem;
+  }
 }

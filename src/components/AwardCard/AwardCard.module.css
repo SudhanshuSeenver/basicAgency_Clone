@@ -10,12 +10,12 @@
 }
 /* .card:visit{
 
+}*/
+.card:hover {
+  text-decoration: underline;
 }
-.card:hover{
-
-}
-.card:active{
-
+/*.card:active{
+  
 } */
 .brand_logo {
   width: 40%;
@@ -23,8 +23,12 @@
   margin: 0 auto;
 }
 
+.card:hover .brand_logo svg {
+  transform: scale(1.1);
+}
 .brand_logo svg {
   /* width: 100%; */
+  transition: transform 250ms linear;
   /* max-height: 8rem; */
   aspect-ratio: 175/101;
 }
