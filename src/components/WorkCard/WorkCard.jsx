@@ -6,11 +6,11 @@ function WorkCard({ work, ...props }) {
   return (
     <div className={styles.card}>
       <a className={styles.card_link} {...props} href="#">
-        <div>
-          {imgSrc && <img src={imgSrc} alt={name} />}
-          {vidSrc && <video src={vidSrc} loop autoPlay muted />}
+        <div className={styles.card_media}>
+          {imgSrc && <img className={styles.card_img} src={imgSrc} alt={name} />}
+          {vidSrc && <video className={styles.card_vid} src={vidSrc} loop autoPlay muted />}
         </div>
-        <div>
+        <div className={styles.card_info}>
           <h4>{name}</h4>
           <p>{text}</p>
         </div>

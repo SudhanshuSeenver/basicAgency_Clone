@@ -1,4 +1,5 @@
 .container {
+  overflow: hidden;
 }
 .nav_hero_s {
   height: 100vh;
@@ -127,6 +128,21 @@
 }
 
 /* *************** */
+/* Common Css      */
+/* *-************* */
+
+.award_list,
+.work_list,
+.client_list,
+.news_list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  justify-content: center;
+  padding-left: 0;
+}
+
+/* *************** */
 /* Award Section */
 /* *-************* */
 
@@ -135,15 +151,10 @@
   padding: 15vw 5.4vw;
 }
 .award_list {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   gap: 1.6rem;
   /* row-gap: 10rem; */
   /* flex-wrap: wrap; */
   width: 100%;
-  list-style: none;
-  padding: 0;
 }
 
 .award_list > li {
@@ -260,9 +271,13 @@
   margin: 0 0 12.5vw;
 }
 .work_list {
-  padding-left: 0;
-  list-style: none;
-  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.work_list > li {
+  flex: 0 1 100%;
 }
 
 /* *************** */
@@ -271,7 +286,174 @@
 
 .client_section {
   padding: 0 5.4vw;
-  border: 5px solid black;
+  /* border: 5px solid black; */
+}
+
+.client_content {
+  border-top: 1px solid var(--color-font-dark);
+  /* padding-top: 10rem; */
+  position: relative;
+}
+.client_count_bar {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-size: 1.1rem;
+}
+.bar_col1 {
+  width: 100%;
+}
+
+.bar_col2 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.client_heading {
+  margin-top: 6rem;
+  /* width: 50%; */
+  font-family: var(--font-bold);
+
+  overflow: visible;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  letter-spacing: -1px;
+  width: 20rem;
+  /* width: 30%; */
+}
+
+.client_list {
+  padding-top: 6.25rem;
+  justify-content: flex-start;
+  gap: 1.6rem;
+  width: 100%;
+  overflow-x: scroll;
+}
+.client_list > li {
+  width: 82%;
+  flex: 1 0 82%;
+}
+
+/* *************** */
+/* Spotlight Section  */
+/* *-************* */
+
+.spotlight_section {
+  padding: 0 5.4vw;
+  margin: 12.5vw 0;
+}
+
+.spotlight {
+  display: flex;
+  gap: 3.2rem;
+  width: 100%;
+}
+.spotlight_colL {
+  width: 50%;
+  color: var(--color-font-dark);
+}
+
+.spotlight_static > q {
+  color: inherit;
+  display: block;
+  font-family: var(--font-bold);
+  font-weight: 900;
+  font-size: 6.25vw;
+  line-height: 0.9;
+  quotes: none;
+  letter-spacing: -5px;
+  /* word-spacing: 5px; */
+  text-transform: uppercase;
+}
+.spotlight_static > p {
+  margin-top: 2.5rem;
+  font-family: var(--font-medium);
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+.spotlight_static > p > span {
+  font-weight: 700;
+}
+
+.spotlight_btn {
+  margin: 8rem 0 0;
+}
+.spotlight_btn > a {
+  text-decoration: none;
+  z-index: 10;
+  padding: 0.2rem 3rem;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.spotlight_btn:hover > a {
+  color: var(--color-white);
+}
+
+.spotlight_colR {
+  object-fit: contain;
+  width: 50%;
+}
+
+.spotlight_colR > video {
+  height: 100%;
+  width: 100%;
+}
+
+/* *************** */
+/* Spotlight Section  */
+/* *-************* */
+
+.news_section {
+  padding: 0 5.4vw;
+}
+.news_head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news_head > h2 {
+  text-transform: uppercase;
+  font-family: var(--font-bold);
+  font-size: 4.2rem;
+  letter-spacing: -2px;
+  width: 30%;
+  max-width: 250px;
+  line-height: 1.1;
+}
+
+.news_allBtn {
+  color: inherit;
+}
+.news_allBtn > a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.2rem 3rem;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.news_allBtn:hover > a {
+  color: var(--color-white);
+}
+
+.news_section .news_list {
+  flex-direction: column;
+  margin: 5rem 0 0;
+}
+.news_section .news_list > li {
+  width: 100%;
+  margin: 8rem 0 0;
 }
 
 /* *************** */
@@ -284,6 +466,25 @@
   }
   .about_desc_txt {
     width: 55%;
+  }
+
+  .work_list {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .client_heading {
+    width: 35rem;
+  }
+  .client_list > li {
+    width: 49%;
+    flex: 1 0 49%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .client_list > li {
+    width: 32%;
+    flex: 1 0 32%;
   }
 }
 
@@ -307,5 +508,29 @@
   }
   .about_desc_txt {
     font-size: 3.8rem;
+  }
+  .work_list {
+    gap: 2rem;
+  }
+
+  .client_count_bar {
+    flex-direction: row;
+    font-size: 1.4rem;
+  }
+  .bar_col1 {
+    width: 35%;
+  }
+  .bar_col2 {
+    width: 65%;
+  }
+
+  .client_heading {
+    margin-top: 8.5rem;
+    font-size: 4.2rem;
+    letter-spacing: -1.8px;
+  }
+  .client_list {
+    padding-top: 12.5rem;
+    gap: 2rem;
   }
 }

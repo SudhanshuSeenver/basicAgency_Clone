@@ -1,61 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
-import Header from "../../components/Header/Header";
-
 import styles from "./Home.module.css";
+
 import videoReelHero from "../../assets/videos/reel-loop.mp4";
 import videoHero from "../../assets/videos/reel_220409_001451.mp4";
-import googleStoreCaseStudy from "../../assets/videos/Google-Store-Web-Design-Case-Study-Thumbnail-02.mp4";
-import pantagoniaCaseStudy from "../../assets/images/Patagonia-Case-Study-Thumbnail.jpeg";
-import wilsonCaseStudy from "../../assets/images/WIlson-Case-Study-Thumbnail.jpeg";
 
-import { ReactComponent as AdAgeLogo } from "../../assets/logos/adAge.svg";
-import { ReactComponent as WebbyLogo } from "../../assets/logos/webbyLogo.svg";
-import { ReactComponent as CampaignLogo } from "../../assets/logos/campaignLogo.svg";
+import cultureLoop from "../../assets/videos/Culture-Loop_v1.mp4";
+
 import { ReactComponent as BDLogo } from "../../assets/logos/B_DLogo.svg";
+
+import Header from "../../components/Header/Header";
 import AwardCard from "../../components/AwardCard/AwardCard";
 import Button from "../../components/Button/Button";
 import WorkCard from "../../components/WorkCard/WorkCard";
+import ClientCard from "../../components/ClientCard/ClientCard";
+import FeaturedNews from "../../components/FeaturedNews/FeaturedNews";
+import {
+  awards_data,
+  works_data,
+  clients_data,
+  news_data,
+} from "../../helpers/data";
 
 function Home() {
   const heroRef = useRef(null);
   const navH = useRef(null);
   const videoRef = useRef(null);
   const reelRef = useRef(null);
-
-  const awards = [
-    {
-      name: "AdAge",
-      Logo: AdAgeLogo,
-      text: "Design and Branding Agency of the Year",
-    },
-    {
-      name: "Webby_awards",
-      Logo: WebbyLogo,
-      text: "Agency of the Year",
-    },
-    {
-      name: "Campaign",
-      Logo: CampaignLogo,
-      text: "Digital Innovation Agency of the Year Finalist",
-    },
-  ];
-  const works = [
-    {
-      imgSrc: pantagoniaCaseStudy,
-      name: "patagonia",
-      text: "An eCommerce experience driven by Patagonia’s brand mission",
-    },
-    {
-      imgSrc: wilsonCaseStudy,
-      name: "wilson",
-      text: "A century-old sports brand finding its place in culture",
-    },
-    {
-      vidSrc: googleStoreCaseStudy,
-      name: "google store",
-      text: "An eCommerce experience helping Google bring its hardware to people across the globe",
-    },
-  ];
 
   const [cursorPos, setCursorPos] = useState([
     window.innerWidth / 2 + "px",
@@ -67,6 +37,13 @@ function Home() {
   const [duration, setDuration] = useState(0.001);
   const [seekPos, setSeekPos] = useState(0);
   const [curTimeVid, setCurTimeVid] = useState(0);
+  const [works, setWorks] = useState([]);
+  const [awards, setawards] = useState([]);
+  const [clients, setClients] = useState([]);
+  const [news, setNews] = useState([]);
+  const [scrollBarWidth, setScrollbarWidth] = useState(
+    innerWidth - document.documentElement.clientWidth
+  );
 
   function handleReelClick(e) {
     if (videoRef.current) console.log(1);
@@ -83,9 +60,14 @@ function Home() {
     setPlayReelVid(!playReelVid);
   }
 
+  // const getScrollbarWidth = () =>
+  //   innerWidth - document.documentElement.clientWidth;
+
   function handleTimeUpdate(e) {
     setCurTimeVid(Math.floor(e.target.currentTime));
-    const skPos = Math.floor((e.target.currentTime / duration) * innerWidth);
+    const skPos = Math.floor(
+      (e.target.currentTime / duration) * innerWidth - scrollBarWidth
+    );
     setSeekPos(skPos);
   }
 
@@ -106,6 +88,11 @@ function Home() {
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
     setCursorPos([window.innerWidth / 2 + "px", window.innerHeight / 2 + "px"]);
+
+    setawards(awards_data);
+    setWorks(works_data);
+    setClients(clients_data);
+    setNews(news_data);
   }, []);
 
   useEffect(() => {
@@ -246,7 +233,63 @@ function Home() {
         </ul>
       </section>
 
-      <section className={styles.client_section}></section>
+      <section className={styles.client_section}>
+        <div className={styles.client_content}>
+          <div className={styles.client_count_bar}>
+            <div className={styles.bar_col1}>
+              <div>00</div>
+            </div>
+            <div className={styles.bar_col2}>
+              <div>/05</div>
+              <div>&#11044;</div>
+            </div>
+          </div>
+
+          <h3 className={styles.client_heading}>Featured Engagements</h3>
+          <ul className={styles.client_list}>
+            {clients.map((client) => (
+              <li key={client.name}>
+                <ClientCard data={client} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className={styles.spotlight_section}>
+        <div className={styles.spotlight}>
+          <div className={styles.spotlight_colL}>
+            <div className={styles.spotlight_static}>
+              <q>basic/dept&reg; helps Brands &#11044; connect w/ culture</q>
+              <p>
+                Adweek <span>Agency spotlight</span>
+              </p>
+              <Button custCls={styles.spotlight_btn} primary>
+                <a href="#">About Us</a>
+              </Button>
+            </div>
+          </div>
+          <div className={styles.spotlight_colR}>
+            <video src={cultureLoop} autoPlay loop muted></video>
+          </div>
+        </div>
+      </section>
+      <section className={styles.news_section}>
+        <div className={styles.news}>
+          <div className={styles.news_head}>
+            <h2>Featured news</h2>
+            <Button custCls={styles.news_allBtn} primary>
+              <a href="#">view all</a>
+            </Button>
+          </div>
+          <ul className={styles.news_list}>
+            {news_data.map((news) => (
+              <li key={news.title}>
+                <FeaturedNews data={news} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

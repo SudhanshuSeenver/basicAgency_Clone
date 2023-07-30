@@ -54,6 +54,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-regular), sans-serif;
   min-height: 100vh;
+  color: var(--color-font-dark);
 }
 img,
 picture,
