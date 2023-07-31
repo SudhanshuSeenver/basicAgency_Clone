@@ -6,13 +6,19 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  /* color: currentColor; */
   height: 4rem;
 }
 .client_logo > svg {
   position: absolute;
   /* transform: translateX(15%); */
   /* width: 100%; */
+
+  fill: currentColor !important;
   height: 100%;
+}
+.client_logo > svg > path {
+  fill: currentColor !important;
 }
 
 .client_name::before {

@@ -1,5 +1,5 @@
 .container {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .nav_hero_s {
   height: 100vh;
@@ -63,7 +63,7 @@
   /* max-height: var(--grid-height); */
   height: var(--grid-height);
   width: 100%;
-  background-color: #000;
+  background-color: var(--color-black);
 }
 
 .cursor_outerLayer {
@@ -353,23 +353,29 @@
 
 .spotlight {
   display: flex;
-  gap: 3.2rem;
+  flex-direction: column-reverse;
+  gap: 5rem;
   width: 100%;
 }
 .spotlight_colL {
-  width: 50%;
-  color: var(--color-font-dark);
+  width: 100%;
+  color: currentColor;
+  /* position: relative; */
 }
 
+.spotlight_static {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+}
 .spotlight_static > q {
-  color: inherit;
   display: block;
   font-family: var(--font-bold);
   font-weight: 900;
-  font-size: 6.25vw;
+  font-size: 4.6rem;
   line-height: 0.9;
   quotes: none;
-  letter-spacing: -5px;
+  letter-spacing: -2.25px;
   /* word-spacing: 5px; */
   text-transform: uppercase;
 }
@@ -377,30 +383,31 @@
   margin-top: 2.5rem;
   font-family: var(--font-medium);
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 .spotlight_static > p > span {
   font-weight: 700;
 }
 
 .spotlight_btn {
-  margin: 8rem 0 0;
+  margin: 2.5rem 0 0;
 }
 .spotlight_btn > a {
   text-decoration: none;
   z-index: 10;
   padding: 0.2rem 3rem;
   text-transform: uppercase;
-  color: inherit;
+  color: currentColor;
 }
 
 .spotlight_btn:hover > a {
-  color: var(--color-white);
+  color: var(--color-background);
+  /* mix-blend-mode: difference; */
 }
 
 .spotlight_colR {
   object-fit: contain;
-  width: 50%;
+  width: 100%;
 }
 
 .spotlight_colR > video {
@@ -409,7 +416,7 @@
 }
 
 /* *************** */
-/* Spotlight Section  */
+/* news Section  */
 /* *-************* */
 
 .news_section {
@@ -483,7 +490,19 @@
     width: 49%;
     flex: 1 0 49%;
   }
-  .news_head > h2 {
+
+  .spotlight {
+    flex-direction: row;
+    gap: 3.2rem;
+  }
+
+  .spotlight_colL {
+    width: 50%;
+  }
+  .spotlight_colR {
+    width: 50%;
+  }
+  .spotlight_colR .news_head > h2 {
     letter-spacing: -1.5px;
     width: 100%;
     max-width: 450px;
@@ -497,6 +516,15 @@
   .client_list > li {
     width: 32%;
     flex: 1 0 32%;
+  }
+  .spotlight_static > q {
+    font-size: 6.25vw;
+  }
+  .spotlight_btn {
+    margin: 8rem 0 0;
+  }
+  .spotlight_static > p {
+    font-size: 1.8rem;
   }
 }
 

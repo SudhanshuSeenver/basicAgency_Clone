@@ -79,6 +79,14 @@
   margin: 2.5rem 0 0;
   font-weight: 300;
 }
+
+.socials li,
+.initiatives li,
+.offices li {
+  margin-top: 0.5rem;
+  line-height: 1;
+}
+
 .socials a:link,
 .initiatives a:link,
 .offices a:link {
@@ -146,6 +154,7 @@
   flex-direction: column;
   text-transform: uppercase;
   font-size: 1.1rem;
+  line-height: 2rem;
   background-color: var(--color-background-footer-privacy);
   color: var(--color-footer-privacy);
   justify-content: space-between;

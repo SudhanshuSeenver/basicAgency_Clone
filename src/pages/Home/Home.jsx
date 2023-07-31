@@ -22,11 +22,18 @@ import {
 } from "../../helpers/data";
 import Footer from "../../components/Footer/Footer";
 
+// const optionIntersection = {
+//   root: spotlight;
+// }
+
+// const observer = 0;
+
 function Home() {
   const heroRef = useRef(null);
   const navH = useRef(null);
   const videoRef = useRef(null);
   const reelRef = useRef(null);
+  const spotlightRef = useRef(null);
 
   const [cursorPos, setCursorPos] = useState([
     window.innerWidth / 2 + "px",
@@ -45,6 +52,8 @@ function Home() {
   const [scrollBarWidth, setScrollbarWidth] = useState(
     innerWidth - document.documentElement.clientWidth
   );
+  const [observerSpotlight, setObserverSpotlight] = useState(null);
+  // const [isSpotIntersect, setIsSpotIntersect] = useState(false);
 
   function handleReelClick(e) {
     if (videoRef.current) console.log(1);
@@ -61,6 +70,16 @@ function Home() {
     setPlayReelVid(!playReelVid);
   }
 
+  function setCssVar(cssVar, cssVarVal) {
+    document.documentElement.style.setProperty(cssVar, cssVarVal);
+    console.log(
+      "cssVars",
+      getComputedStyle(document.documentElement).getPropertyValue(cssVar)
+    );
+  }
+  function getCssVars(cssVar) {
+    return getComputedStyle(document.documentElement).getPropertyValue(cssVar);
+  }
   // const getScrollbarWidth = () =>
   //   innerWidth - document.documentElement.clientWidth;
 
@@ -89,13 +108,43 @@ function Home() {
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
     setCursorPos([window.innerWidth / 2 + "px", window.innerHeight / 2 + "px"]);
-
+    // cssVarsEle.current = document.documentElement;
     setawards(awards_data);
     setWorks(works_data);
     setClients(clients_data);
     setNews(news_data);
-  }, []);
+    const options = {
+      rootMargin: "40px 0px",
+      threshold: [0.5],
+    };
+    setObserverSpotlight(
+      new IntersectionObserver((element, observer) => {
+        console.log("hello1");
 
+        console.log(element);
+        if (!element[0].isIntersecting) {
+          setCssVar(
+            "--color-background",
+            getCssVars("--color-background-light")
+          );
+          setCssVar("--color-font", getCssVars("--color-font-dark"));
+        } else {
+          setCssVar(
+            "--color-background",
+            getCssVars("--color-background-dark")
+          );
+          setCssVar("--color-font", getCssVars("--color-background-pink"));
+        }
+      }, options)
+    );
+  }, []);
+  console.log(observerSpotlight);
+
+  useEffect(() => {
+    observerSpotlight && observerSpotlight.observe(spotlightRef.current);
+
+    console.log(spotlightRef.current.children[0]);
+  }, [observerSpotlight]);
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--grid-height",
@@ -256,7 +305,7 @@ function Home() {
           </ul>
         </div>
       </section>
-      <section className={styles.spotlight_section}>
+      <section ref={spotlightRef} className={styles.spotlight_section}>
         <div className={styles.spotlight}>
           <div className={styles.spotlight_colL}>
             <div className={styles.spotlight_static}>

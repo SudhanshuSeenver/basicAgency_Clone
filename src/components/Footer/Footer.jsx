@@ -54,7 +54,7 @@ function Footer() {
           </div>
           <div className={styles.socials}>
             <h5>
-              <span>&#11044;</span>Socials
+              <span>&#11044;</span>Social
             </h5>
             <ul>
               {socials.map((data) => (

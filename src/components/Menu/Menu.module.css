@@ -12,12 +12,14 @@
 }
 .btn_men.btn_men {
   color: var(--color-background-pink);
-  position: absolute;
-  right: 20px;
-  top: 30px;
+  position: relative;
+  /* right: 20px; */
+  top: -0.5rem;
   /* color: #222; */
-  height: 4rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
+  /* height: 4rem; */
+  /* width: 4rem; */
   /* font-size: 1rem; */
   border: 1px solid var(--color-background-pink);
   border-radius: 50%;
@@ -35,5 +37,58 @@
 }
 
 .btn_men > svg {
+  transform: scale(1.5);
+}
+/* .btn_men > svg {
   transform: scale(1.8);
+} */
+
+.menu_head {
+  padding: calc(1.5rem + 2.5vw) 5.4vw 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.menu_logo > svg {
+  fill: currentColor;
+  height: 1.8rem;
+}
+
+.menu_nav {
+  padding: 0 5.4vw;
+  margin-top: 6rem;
+}
+.menu_navList {
+  list-style: none;
+}
+
+.menu_navList > li {
+  margin: 1.5rem 0 0;
+  font-family: var(--font-medium);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+
+.menu_navList a {
+  text-decoration: none;
+  color: currentColor;
+  line-height: 1;
+  position: relative;
+  left: -1rem;
+  padding: 0.5rem 1rem;
+}
+
+.menuInitiatives_btn.menuInitiatives_btn {
+  color: currentColor;
+  text-transform: uppercase;
+}
+
+.menuInitiatives_btn.menuInitiatives_btn > span > svg {
+  font-size: 2.4rem;
+}
+
+@media screen and (min-width: 720px) {
+  .menu_navList > li {
+    font-size: 2.4rem;
+  }
 }

@@ -16,13 +16,14 @@
   /* Global variables to be defined here */
   /* --color-white: #ffffff; */
   --color-background-light: #f4f4f4;
+  --color-font: var(--color-font-dark);
   --color-background: #f4f4f4ff;
   --color-background-dark: #252422;
   --color-font-dark: #252422;
   --color-background-footer: #242422;
   --color-footer: #f4f4f4;
-  --color-background-footer-privacy:#191918 ;
-  --color-footer-privacy:#5e5e5e ;
+  --color-background-footer-privacy: #191918;
+  --color-footer-privacy: #5e5e5e;
   --color-background-pink: #f9cdcd;
   --color-primary: #34c94b;
   --color-black: #121212;
@@ -58,7 +59,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-regular), sans-serif;
   min-height: 100vh;
-  color: var(--color-font-dark);
+  color: var(--color-font);
+  background-color: var(--color-background);
+  transition: color 250ms linear, background-color 250ms linear;
 }
 img,
 picture,
