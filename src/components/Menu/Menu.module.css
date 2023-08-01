@@ -87,6 +87,24 @@
   font-size: 2.4rem;
 }
 
+.initiatives_Ct {
+  padding: 0 5.4vw;
+}
+
+.initiatives_list {
+  list-style: none;
+  /* overflow-y: unset; */
+  height: 75vh;
+  overflow-x: scroll;
+  display: flex;
+}
+.initiatives_list > li {
+  width: 32%;
+  /* height: 32vw; */
+
+  flex: 1 0 32%;
+}
+
 @media screen and (min-width: 720px) {
   .menu_navList > li {
     font-size: 2.4rem;

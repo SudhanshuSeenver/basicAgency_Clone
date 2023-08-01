@@ -19,6 +19,12 @@ import WebbyAwardsNews from "../assets/images/news/webby_awards_news.jpeg";
 import JohnWaters from "../assets/images/news/john_waters.jpeg";
 import WebbyAwards27 from "../assets/images/news/27_webby_awards.jpeg";
 
+import InitiativeJamsImg from "../assets/images/initiatives_Jams.jpeg";
+import InitiativeAppliedImg from "../assets/images/Iniatives-Menu_Thumbnail_BASIC®_Applied.png";
+import InitiativeMovesImg from "../assets/images/Iniatives-Menu_Thumbnail_BASIC®_Moves.png";
+import InitiativeCraftedImg from "../assets/images/Iniatives-Menu_Thumbnail_BASIC®_Crafted.png";
+import InitiativeBrandbeatsImg from "../assets/images/Iniatives-Menu_Thumbnail_BASIC®_Brandbeats.png";
+
 const awards_data = [
   {
     name: "AdAge",
@@ -145,4 +151,62 @@ const news_data = [
 //   "Argentina – AR",
 // ];
 
-export { awards_data, works_data, clients_data, news_data };
+const initiatives_data = [
+  {
+    name: "b/d® jams",
+    desc: "A weekly-ish playlist curated by the employees @ BASIC/DEPT®",
+    label: "it's a vibe",
+    imgSrc: InitiativeJamsImg,
+    year: 2020,
+    link: {
+      text: "Visit the Site",
+      href: "#",
+    },
+  },
+  {
+    name: "Applied®",
+    desc: "Our panel series and thought-leadership platform where we share perspectives and tactics related to strategy, design, and technology.",
+    label: "Thoughts & Perspectives",
+    imgSrc: InitiativeAppliedImg,
+    year: 2020,
+    link: {
+      text: "Explore Applied",
+      href: "#",
+    },
+  },
+  {
+    name: "Moves®",
+    desc: "When we moved into our new HQ, we put together a site experience providing an in-depth look into the two-year process imagining, designing, and developing our new office we call home.",
+    label: "our new Hq",
+    imgSrc: InitiativeMovesImg,
+    year: 2019,
+    link: {
+      text: "Visit the Site",
+      href: "#",
+    },
+  },
+  {
+    name: "crafted®",
+    desc: "A communal initiative we operate to celebrate diversity and creativity by bringing together people from different backgrounds and interests.",
+    label: "creative community",
+    imgSrc: InitiativeCraftedImg,
+    year: 2019,
+    link: {
+      text: "Visit the Site",
+      href: "#",
+    },
+  },
+  {
+    name: "brandbeats®",
+    desc: "Our podcast series garnering 45,000+ listens per episode providing candid conversations around various industry related topics.",
+    label: "Podcast Series",
+    imgSrc: InitiativeBrandbeatsImg,
+    year: 2017,
+    link: {
+      text: "Explore Brandbeats",
+      href: "#",
+    },
+  },
+];
+
+export { awards_data, works_data, clients_data, news_data, initiatives_data };

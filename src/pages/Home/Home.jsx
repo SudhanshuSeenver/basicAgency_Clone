@@ -7,6 +7,7 @@ import videoHero from "../../assets/videos/reel_220409_001451.mp4";
 import cultureLoop from "../../assets/videos/Culture-Loop_v1.mp4";
 
 import { ReactComponent as BDLogo } from "../../assets/logos/B_DLogo.svg";
+import { ReactComponent as BDHalfLogo } from "../../assets/logos/BD_2Logo.svg";
 
 import Header from "../../components/Header/Header";
 import AwardCard from "../../components/AwardCard/AwardCard";
@@ -163,185 +164,192 @@ function Home() {
   }
   //   console.log(navH.current.offsetHeight);
   return (
-    <div className={styles.container}>
-      <div className={styles.nav_hero_s}>
-        <Header navH={navH} innerWidth={innerWidth} />
-        <div
-          ref={heroRef}
-          id="hero_s"
-          onClick={handleReelClick}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseMoveOut}
-          className={`${styles.hero_section} ${
-            playReelVid ? styles.pointerAll : ""
-          }`}
-        ></div>
-        <div
-          className={styles.cursor_outerLayer}
-          style={{ height: innerHeight }}
-        >
+    <>
+      <div className={styles.loadScreen}>
+        <figure className={styles.loadScreenfig}>
+          <BDHalfLogo />
+        </figure>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.nav_hero_s}>
+          <Header navH={navH} innerWidth={innerWidth} />
           <div
-            className={styles.cursor_wr}
-            style={{
-              transform: `translate(${cursorPos[0]}, ${cursorPos[1]})`,
-            }}
+            ref={heroRef}
+            id="hero_s"
+            onClick={handleReelClick}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseMoveOut}
+            className={`${styles.hero_section} ${
+              playReelVid ? styles.pointerAll : ""
+            }`}
+          ></div>
+          <div
+            className={styles.cursor_outerLayer}
+            style={{ height: innerHeight }}
           >
             <div
-              className={`${styles.custom_cursor} ${
-                playReelVid ? styles.none : ""
-              }`}
+              className={styles.cursor_wr}
+              style={{
+                transform: `translate(${cursorPos[0]}, ${cursorPos[1]})`,
+              }}
             >
-              <div className={styles.cursor_c}>Watch Reel</div>
-              <p>basic/Dept&#xae; 2010-&#8734;</p>
+              <div
+                className={`${styles.custom_cursor} ${
+                  playReelVid ? styles.none : ""
+                }`}
+              >
+                <div className={styles.cursor_c}>Watch Reel</div>
+                <p>basic/Dept&#xae; 2010-&#8734;</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.videoplayer_cont}>
-          <div
-            className={`${styles.vid_box} ${
-              playReelVid ? styles.pause_true : ""
-            }`}
-          >
-            <video
-              className={styles.video_reel}
-              style={{ height: innerHeight }}
-              src={videoReelHero}
-              autoPlay={true}
-              ref={reelRef}
-              muted
-              loop
-            />
-          </div>
-          <div
-            className={`${styles.vid_box} ${
-              !playReelVid ? styles.pause_true : ""
-            }`}
-          >
-            <video
-              className={styles.video_reel}
-              style={{ height: innerHeight }}
-              onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={handleMetaDataLoad}
-              src={videoHero}
-              ref={videoRef}
-            />
+          <div className={styles.videoplayer_cont}>
             <div
-              style={{
-                transform: `translateX(${seekPos}px)`,
-              }}
-              className={styles.vid_seekerbar}
+              className={`${styles.vid_box} ${
+                playReelVid ? styles.pause_true : ""
+              }`}
             >
-              <div className={styles.vid_seek}>
-                <span>
-                  00:
-                  {curTimeVid.toLocaleString("en-IN", {
-                    minimumIntegerDigits: 2,
-                  })}
-                </span>
-                /<span>00:{duration}</span>
+              <video
+                className={styles.video_reel}
+                style={{ height: innerHeight }}
+                src={videoReelHero}
+                autoPlay={true}
+                ref={reelRef}
+                muted
+                loop
+              />
+            </div>
+            <div
+              className={`${styles.vid_box} ${
+                !playReelVid ? styles.pause_true : ""
+              }`}
+            >
+              <video
+                className={styles.video_reel}
+                style={{ height: innerHeight }}
+                onTimeUpdate={handleTimeUpdate}
+                onLoadedMetadata={handleMetaDataLoad}
+                src={videoHero}
+                ref={videoRef}
+              />
+              <div
+                style={{
+                  transform: `translateX(${seekPos}px)`,
+                }}
+                className={styles.vid_seekerbar}
+              >
+                <div className={styles.vid_seek}>
+                  <span>
+                    00:
+                    {curTimeVid.toLocaleString("en-IN", {
+                      minimumIntegerDigits: 2,
+                    })}
+                  </span>
+                  /<span>00:{duration}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <section className={styles.award_section}>
-        <ul className={styles.award_list}>
-          {awards.map((award) => (
-            <li>
-              <AwardCard data={award} key={award.name} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.about_section}>
-        <div className={styles.about}>
-          <div className={styles.about_desc}>
-            <h3 className={styles.about_desc_txt}>
-              BASIC/DEPT&reg; is a global branding and digital design agency
-              building products, services, and eCommerce experiences that turn
-              cultural values into company value.
-            </h3>
-            <Button custCls={styles.about_btnSee_work} primary>
-              <a href="#">see the work</a>
-            </Button>
-          </div>
-          <div className={styles.about_BD}>
-            <figure className={styles.about_BD_logo}>
-              <BDLogo />
-            </figure>
-          </div>
-        </div>
-      </section>
-      <section className={styles.work_section}>
-        <ul className={styles.work_list}>
-          {works.map((work) => (
-            <li key={work.name}>
-              <WorkCard work={work} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={styles.client_section}>
-        <div className={styles.client_content}>
-          <div className={styles.client_count_bar}>
-            <div className={styles.bar_col1}>
-              <div>00</div>
-            </div>
-            <div className={styles.bar_col2}>
-              <div>/05</div>
-              <div>&#11044;</div>
-            </div>
-          </div>
-
-          <h3 className={styles.client_heading}>Featured Engagements</h3>
-          <ul className={styles.client_list}>
-            {clients.map((client) => (
-              <li key={client.name}>
-                <ClientCard data={client} />
+        <section className={styles.award_section}>
+          <ul className={styles.award_list}>
+            {awards.map((award) => (
+              <li>
+                <AwardCard data={award} key={award.name} />
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-      <section ref={spotlightRef} className={styles.spotlight_section}>
-        <div className={styles.spotlight}>
-          <div className={styles.spotlight_colL}>
-            <div className={styles.spotlight_static}>
-              <q>basic/dept&reg; helps Brands &#11044; connect w/ culture</q>
-              <p>
-                Adweek <span>Agency spotlight</span>
-              </p>
-              <Button custCls={styles.spotlight_btn} primary>
-                <a href="#">About Us</a>
+        </section>
+
+        <section className={styles.about_section}>
+          <div className={styles.about}>
+            <div className={styles.about_desc}>
+              <h3 className={styles.about_desc_txt}>
+                BASIC/DEPT&reg; is a global branding and digital design agency
+                building products, services, and eCommerce experiences that turn
+                cultural values into company value.
+              </h3>
+              <Button custCls={styles.about_btnSee_work} primary>
+                <a href="#">see the work</a>
               </Button>
             </div>
+            <div className={styles.about_BD}>
+              <figure className={styles.about_BD_logo}>
+                <BDLogo />
+              </figure>
+            </div>
           </div>
-          <div className={styles.spotlight_colR}>
-            <video src={cultureLoop} autoPlay loop muted></video>
-          </div>
-        </div>
-      </section>
-      <section className={styles.news_section}>
-        <div className={styles.news}>
-          <div className={styles.news_head}>
-            <h2>Featured news</h2>
-            <Button custCls={styles.news_allBtn} primary>
-              <a href="#">view all</a>
-            </Button>
-          </div>
-          <ul className={styles.news_list}>
-            {news_data.map((news) => (
-              <li key={news.title}>
-                <FeaturedNews data={news} />
+        </section>
+        <section className={styles.work_section}>
+          <ul className={styles.work_list}>
+            {works.map((work) => (
+              <li key={work.name}>
+                <WorkCard work={work} />
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-      <Footer />
-    </div>
+        </section>
+
+        <section className={styles.client_section}>
+          <div className={styles.client_content}>
+            <div className={styles.client_count_bar}>
+              <div className={styles.bar_col1}>
+                <div>00</div>
+              </div>
+              <div className={styles.bar_col2}>
+                <div>/05</div>
+                <div>&#11044;</div>
+              </div>
+            </div>
+
+            <h3 className={styles.client_heading}>Featured Engagements</h3>
+            <ul className={styles.client_list}>
+              {clients.map((client) => (
+                <li key={client.name}>
+                  <ClientCard data={client} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        <section ref={spotlightRef} className={styles.spotlight_section}>
+          <div className={styles.spotlight}>
+            <div className={styles.spotlight_colL}>
+              <div className={styles.spotlight_static}>
+                <q>basic/dept&reg; helps Brands &#11044; connect w/ culture</q>
+                <p>
+                  Adweek <span>Agency spotlight</span>
+                </p>
+                <Button custCls={styles.spotlight_btn} primary>
+                  <a href="#">About Us</a>
+                </Button>
+              </div>
+            </div>
+            <div className={styles.spotlight_colR}>
+              <video src={cultureLoop} autoPlay loop muted></video>
+            </div>
+          </div>
+        </section>
+        <section className={styles.news_section}>
+          <div className={styles.news}>
+            <div className={styles.news_head}>
+              <h2>Featured news</h2>
+              <Button custCls={styles.news_allBtn} primary>
+                <a href="#">view all</a>
+              </Button>
+            </div>
+            <ul className={styles.news_list}>
+              {news_data.map((news) => (
+                <li key={news.title}>
+                  <FeaturedNews data={news} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    </>
   );
 }
 

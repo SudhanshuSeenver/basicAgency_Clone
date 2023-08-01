@@ -60,7 +60,7 @@ function Header({ navH, innerWidth, ...props }) {
           <span className={styles.menuBtn_txt}>Menu</span>
         </Button>
       )}
-      <Menu closeMenu={closeMenu} showMenu={showMenu} />
+      <Menu closeMenu={closeMenu} showMenu={showMenu} innerWidth={innerWidth} />
     </header>
   );
 }
