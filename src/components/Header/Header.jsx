@@ -15,8 +15,12 @@ function Header({ navH, innerWidth, ...props }) {
 
   function openMenu() {
     setShowMenu(true);
+    document.getElementsByTagName("body")[0].classList.add("overflow_hidden");
   }
   function closeMenu() {
+    document
+      .getElementsByTagName("body")[0]
+      .classList.remove("overflow_hidden");
     setShowMenu(false);
   }
 

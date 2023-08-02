@@ -57,7 +57,7 @@ function Home() {
   // const [isSpotIntersect, setIsSpotIntersect] = useState(false);
 
   function handleReelClick(e) {
-    if (videoRef.current) console.log(1);
+    // if (videoRef.current) console.log(1);
 
     if (!playReelVid) {
       videoRef.current.play();
@@ -73,10 +73,6 @@ function Home() {
 
   function setCssVar(cssVar, cssVarVal) {
     document.documentElement.style.setProperty(cssVar, cssVarVal);
-    console.log(
-      "cssVars",
-      getComputedStyle(document.documentElement).getPropertyValue(cssVar)
-    );
   }
   function getCssVars(cssVar) {
     return getComputedStyle(document.documentElement).getPropertyValue(cssVar);
@@ -120,9 +116,6 @@ function Home() {
     };
     setObserverSpotlight(
       new IntersectionObserver((element, observer) => {
-        console.log("hello1");
-
-        console.log(element);
         if (!element[0].isIntersecting) {
           setCssVar(
             "--color-background",
@@ -139,22 +132,22 @@ function Home() {
       }, options)
     );
   }, []);
-  console.log(observerSpotlight);
+  // console.log(observerSpotlight);
 
   useEffect(() => {
     observerSpotlight && observerSpotlight.observe(spotlightRef.current);
 
-    console.log(spotlightRef.current.children[0]);
+    // console.log(spotlightRef.current.children[0]);
   }, [observerSpotlight]);
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--grid-height",
       `${window.innerHeight}px`
     );
-    console.log(window.innerHeight);
-    console.log(
-      document.documentElement.style.getPropertyValue("--grid-height")
-    );
+    // console.log(window.innerHeight);
+    // console.log(
+    //   document.documentElement.style.getPropertyValue("--grid-height")
+    // );
   }, [innerHeight]);
 
   function handleMouseMove(e) {
@@ -254,7 +247,7 @@ function Home() {
         <section className={styles.award_section}>
           <ul className={styles.award_list}>
             {awards.map((award) => (
-              <li>
+              <li key={award.name}>
                 <AwardCard data={award} key={award.name} />
               </li>
             ))}

@@ -3,7 +3,11 @@
   height: var(--grid-height);
   background-color: var(--color-background-dark);
   color: var(--color-background-pink);
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
+  /* position: sticky;
+  position: -webkit-sticky; */
+  /* width: 100%; */
   top: 0;
   left: 0;
   z-index: 1000;
@@ -140,7 +144,7 @@
 .initiatives_list {
   list-style: none;
   /* overflow-y: unset; */
-  height: 78.8vh;
+  height: 78vh;
   /* overflow-x: scroll; */
   gap: 2rem;
   display: flex;
