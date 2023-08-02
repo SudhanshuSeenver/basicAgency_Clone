@@ -58,7 +58,7 @@ function Footer() {
             </h5>
             <ul>
               {socials.map((data) => (
-                <li key={data}>
+                <li className={styles.socials_item} key={data}>
                   <a href="#">{data}</a>
                 </li>
               ))}
@@ -70,7 +70,7 @@ function Footer() {
             </h5>
             <ul>
               {initiatives.map((data) => (
-                <li key={data}>
+                <li className={styles.initiatives_item} key={data}>
                   <a href="#">{data}</a>
                 </li>
               ))}
@@ -82,7 +82,7 @@ function Footer() {
             </h5>
             <ul>
               {offices.map((data) => (
-                <li key={data}>
+                <li className={styles.offices_item} key={data}>
                   <a href="#">{data}</a>
                 </li>
               ))}

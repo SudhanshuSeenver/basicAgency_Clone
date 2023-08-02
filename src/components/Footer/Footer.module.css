@@ -80,23 +80,37 @@
   font-weight: 300;
 }
 
-.socials li,
-.initiatives li,
-.offices li {
+.socials_item,
+.initiatives_item,
+.offices_item {
   margin-top: 0.5rem;
   line-height: 1;
 }
 
-.socials a:link,
-.initiatives a:link,
-.offices a:link {
+.socials_item > a:link,
+.initiatives_item > a:link,
+.offices_item > a:link {
   text-decoration: none;
   color: currentColor;
   text-transform: capitalize;
 }
-.socials a:hover,
-.initiatives a:hover,
-.offices a:hover {
+.socials_item > a:visited,
+.initiatives_item > a:visited,
+.offices_item > a:visited {
+  text-decoration: none;
+  color: currentColor;
+  text-transform: capitalize;
+}
+.socials_item > a:active,
+.initiatives_item > a:active,
+.offices_item > a:active {
+  text-decoration: none;
+  color: currentColor;
+  text-transform: capitalize;
+}
+.socials_item > a:hover,
+.initiatives_item > a:hover,
+.offices_item > a:hover {
   text-decoration: underline;
 }
 
@@ -165,7 +179,10 @@
 .terms_policy {
   font-family: var(--font-bold);
 }
-.terms_policy > a:link {
+.terms_policy > a,
+.terms_policy > a:link,
+.terms_policy > a:visited,
+.terms_policy > a:active {
   text-decoration: none;
   color: currentColor;
 }
